@@ -126,9 +126,8 @@ public class PlayerController : MonoBehaviour
     private void ViewController()
     {
         //sets rotation on the x axis
-        float xRotation = Input.GetAxis("Mouse X") * _mouseXSpeed;
-        m_Rotation.y += xRotation;
-        c_Rotation.y += xRotation;
+        float XViewModelRotate = Input.GetAxis("Mouse X") * _mouseXSpeed;
+        m_Rotation.y += XViewModelRotate;
 
         //sets rotation on the y axis
         c_Rotation.x += Input.GetAxis("Mouse Y") * _mouseYSpeed * (-1); //rotates on the x axis to look up and down
@@ -136,9 +135,9 @@ public class PlayerController : MonoBehaviour
 
 
         //rotates view point
-        transform.Rotate(0, xRotation, 0);
-        camera.transform.rotation = Quaternion.Euler(c_Rotation.x, c_Rotation.y, c_Rotation.z);
-        m_Rotation = c_Rotation;
+        transform.Rotate(0, XViewModelRotate, 0);
+        camera.transform.rotation = Quaternion.Euler(c_Rotation.x, m_Rotation.y, c_Rotation.z);
+        
         //Debug.Log(c_Rotation.x);
     }
     private void MoveController()
