@@ -135,7 +135,7 @@ public class navMeshCharacterNavigation : MonoBehaviour
                 break;
                 
             case STATE.ATTACKING:
-                // not really handled yet since it can be coded to do multiple actions
+                // not really handled yet since it can be coded to do multiple actions / stops from NavMesh
                 // the most common one would be to remove health from the player
                 /// if Character attacks chase object and removes health, Character should only attack chase object once
                 displayState = attacking;
