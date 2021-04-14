@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class navMeshCharacterNavigation : MonoBehaviour
 {
+
+    //known bugs, chasing state activate but doesn't reset searching timer, works if mesh is chasing on time of coroutine end
+
     /// public inspector fields
 
     // navmesh Agent
@@ -197,6 +200,7 @@ public class navMeshCharacterNavigation : MonoBehaviour
     IEnumerator SearchTime()
     {
         yield return new WaitForSeconds(5);
+        if (_state == STATE.CHASING) yield break;
         _state = STATE.RETREATING;
         startSearchOnce = true;
     }

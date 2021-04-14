@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
             fog.CrossFadeAlpha(1, .5f, false);
             Debug.Log("Run this Once");
             StartCoroutine("RespawnTimer");
+            respawning = false;
         }
         //StopFall();
     }
@@ -164,11 +165,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator RespawnTimer()
     {
         Debug.Log("Starting respawntimer");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         gameObject.transform.position = m_playerSpawn;
         Debug.Log("Respawning");
         fog.CrossFadeAlpha(0, .7f, false);
-        respawning = false;
         alive = true;
     }//// detect when screen is black
 }
